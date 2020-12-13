@@ -1,32 +1,37 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <nav-bar />
     </div>
-    <router-view/>
+    <div class="main">
+      <router-view />
+    </div>
+    <div class="footer"><foot /></div>
   </div>
 </template>
 
+<script lang="ts">
+import Vue from "vue";
+import NavBar from "./components/NavBar.vue";
+import Foot from "./components/Footer.vue";
+
+export default Vue.extend({
+  components: {
+    NavBar,
+    Foot,
+  },
+});
+</script>
+
 <style>
+* {
+  margin: 0 !important;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  font-family: "Raleway", sans-serif;
+  position: relative;
+  top: 6vh;
+  background: rgba(0, 0, 0, 0.92);
+  color: white;
 }
 </style>

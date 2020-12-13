@@ -1,15 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
+import axios from "axios";
+import { movies } from "./modules/movies/";
 
-Vue.use(Vuex)
-
+Vue.use(Vuex, axios);
+// Create new store with all the modules
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
-  }
-})
+    movies,
+  },
+});
