@@ -49,7 +49,7 @@ export default Vue.extend({
 
 <style scoped>
 .random-page {
-  height: 87vh;
+  height: 82vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr) 0.2fr repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);

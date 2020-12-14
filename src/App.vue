@@ -25,6 +25,7 @@ export default Vue.extend({
 
 <style>
 * {
+  /* Makes sure there is no blank spaces between the nav and the homepage */
   margin: 0 !important;
 }
 #app {

@@ -4,7 +4,7 @@
       <h1>{{ movieObject.title }}</h1>
     </div>
     <div class="movie-image">
-      <!-- Whenever there is not image object show an empty div -->
+      <!-- Whenever there is an image, show image. If not show an empty div -->
       <img
         v-if="movieObject.poster_path"
         :src="`${movieUrl}${movieObject.poster_path}`"

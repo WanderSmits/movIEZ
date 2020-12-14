@@ -2,10 +2,26 @@
   <footer class="site-footer">
     <div class="footer-about">
       <h6>About</h6>
-      <p class="footer-something">
-        Something here
-      </p>
+      <div class="footer-sitemap">
+        <xml:v-on version="1.0" encoding="UTF-8">
+          <urlset
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/TR/xhtml11/xhtml11_schema.html http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
+            xmlns:v-on="http://www.sitemaps.org/schemas/sitemap/0.9"
+            xmlns:xhtml="http://www.w3.org/TR/xhtml11/xhtml11_schema.html"
+          >
+            <router-link :to="{ name: 'Home' }">
+              <url>
+                <loc>http://localhost:8080/#/</loc>
+                <lastmod>2020-12-14T09:48:08+00:00</lastmod>
+                <priority>0.8</priority>
+              </url>
+            </router-link>
+          </urlset>
+        </xml:v-on>
+      </div>
     </div>
+
     <hr />
     <p class="footer-copy">
       Copyright &copy; 2020
@@ -16,7 +32,13 @@
 <script lang="ts">
 import Vue from "vue";
 
-export default Vue.extend({});
+export default Vue.extend({
+  methods: {
+    showXml() {
+      return;
+    },
+  },
+});
 </script>
 
 <style scoped>
@@ -56,6 +78,10 @@ export default Vue.extend({});
   font-size: 12px;
   letter-spacing: 2px;
   margin-top: 5px;
+}
+
+.footer-sitemap {
+  float: right;
 }
 
 @media (max-width: 991px) {
