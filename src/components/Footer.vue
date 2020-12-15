@@ -1,32 +1,26 @@
 <template>
-  <footer class="site-footer">
+  <footer class="footer">
+    <router-link :to="{ name: 'SiteMap' }">
+      <div class="footer-sitemap">
+        Pages
+      </div>
+    </router-link>
+
     <!-- Blank line in footer -->
     <hr />
 
-    <div class="footer-sitemap">
-      <div
-        class="footer-homepage"
-        xlink:type="simple"
-        xlink:href="http://localhost:8080/#/"
-      >
+    <div class="footer-pages">
+      <div class="footer-homepage">
         <router-link :to="{ name: 'Home' }">
           <h5>Home</h5>
         </router-link>
       </div>
-      <div
-        class="footer-category"
-        xlink:type="simple"
-        xlink:href="http://localhost:8080/#/categories"
-      >
+      <div class="footer-category">
         <router-link :to="{ name: 'Categories' }">
           <h5>Categories</h5>
         </router-link>
       </div>
-      <div
-        class="footer-random"
-        xlink:type="simple"
-        xlink:href="http://localhost:8080/#/random"
-      >
+      <div class="footer-random">
         <router-link :to="{ name: 'Random' }">
           <h5>Random</h5>
         </router-link>
@@ -39,16 +33,22 @@
   </footer>
 </template>
 
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({});
+</script>
+
 <style scoped>
-.site-footer {
+.footer {
   position: relative;
   background: rgba(0, 0, 0, 0.5);
-  padding: 5vh 0 2vh;
+  padding: 2vh 0 2vh;
   font-size: 15px;
   color: white;
 }
 
-.footer-sitemap {
+.footer-pages {
   display: grid;
   grid-template-columns: 12fr repeat(3, 1fr);
   grid-template-rows: 1fr;
@@ -56,9 +56,18 @@
   grid-row-gap: 0px;
 }
 
-.footer-sitemap a {
+.footer-pages a {
   text-decoration: none;
   color: #fff;
+}
+
+.footer-sitemap {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-sitemap:hover {
+  cursor: pointer;
 }
 
 a.router-link-exact-active h5 {

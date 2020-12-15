@@ -4,7 +4,7 @@
       <img :src="`${movieBackground}${background}`" alt="movieTitle" />
     </div>
     <div class="movie-title">
-      <!-- Because some of the movies given don't have a title but they do have a name -->
+      <!-- Because some of the movies given don't have a title but they do have a movie name -->
       <h1>
         {{ movieTitle ? movieTitle : movieName }}
       </h1>
@@ -43,11 +43,13 @@ export default Vue.extend({
       movieUrl: "",
     };
   },
+  // Fetch trailer on load
   mounted() {
     this.$store.dispatch("movies/fetchTrailer", this.movieId);
   },
 
   computed: {
+    // Get trailer state
     ...mapState("movies/", ["movieTrailer"]),
   },
 });
@@ -55,7 +57,7 @@ export default Vue.extend({
 
 <style scoped>
 .parent {
-  height: 86vh;
+  height: 87vh;
   display: grid;
   grid-template-columns: 0.5fr repeat(3, 1fr) 0.5fr repeat(3, 1fr) 0.5fr;
   grid-template-rows: 0.5fr repeat(10, 1fr);

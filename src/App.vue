@@ -4,10 +4,10 @@
       <nav-bar />
     </div>
     <div class="main">
+      <!-- Transitions between the pages -->
       <transition
         mode="out-in"
         enter-active-class="animate__animated animate__fadeIn"
-        leave-active-class="animate__animated animate__fadeOut"
       >
         <router-view />
       </transition>

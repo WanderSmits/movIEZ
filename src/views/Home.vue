@@ -17,10 +17,12 @@
         </select>
       </div>
     </div>
+    <!-- Transition on loading the Cards -->
     <transition
       mode="out-in"
-      enter-active-class="animate__animated animate__pulse"
+      enter-active-class="animate__animated animate__fadeIn"
     >
+      <!-- The MovieCards Component -->
       <div :key="movieList" class="movie-cards">
         <movie-cards
           v-for="movie in movieList"

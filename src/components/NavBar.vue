@@ -37,7 +37,7 @@ nav {
   z-index: 10;
 }
 
-.nav-logo {
+nav .nav-logo {
   float: left;
   height: 100%;
   display: flex;
@@ -46,7 +46,11 @@ nav {
   color: #fff;
 }
 
-.nav-links {
+ul {
+  text-decoration: none;
+}
+
+nav .nav-links {
   float: right;
   width: 60%;
   height: 100%;
@@ -55,7 +59,8 @@ nav {
   align-items: center;
 }
 
-.nav-links {
+/* All links */
+nav a {
   text-decoration: none;
   color: #fff;
   display: block;
@@ -64,15 +69,16 @@ nav {
   font-weight: bold;
 }
 
-.nav-links > strong {
+nav strong {
+  /* Right hand side of the logo */
   color: rgb(231, 22, 22);
 }
 
-.nav-links.router-link-exact-active h4 {
+nav a.router-link-exact-active h4 {
   color: rgb(231, 22, 22);
 }
 
-.nav-links li {
+nav .nav-links li {
   list-style: none;
   text-decoration: none;
 }
@@ -127,6 +133,7 @@ nav .nav-menu .nav-line {
   }
 
   nav :checked ~ .nav-links {
+    /* when collapsed, make nav-links full height of window */
     bottom: 0;
   }
   nav .nav-menu {

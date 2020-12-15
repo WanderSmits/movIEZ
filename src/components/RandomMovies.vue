@@ -2,7 +2,6 @@
   <transition
     mode="out-in"
     enter-active-class="animate__animated animate__fadeIn"
-    leave-active-class="animate__animated animate__pulse"
   >
     <div :key="movieObject" class="random">
       <div class="movie-title">

@@ -15,6 +15,7 @@
       <button @click="handleClick">Randomizer</button>
     </div>
 
+    <!-- The RandomMovies component-->
     <div class="random-movie">
       <random-movies :movieObject="movieObject" />
     </div>
@@ -53,7 +54,7 @@ export default Vue.extend({
 
 <style scoped>
 .random-page {
-  height: 86vh;
+  height: 87vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr) 0.2fr repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);

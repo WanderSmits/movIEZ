@@ -19,7 +19,7 @@ export default Vue.extend({});
 <style scoped>
 .categories {
   text-align: center;
-  height: 86vh;
+  height: 87vh;
 }
 
 h1 {
