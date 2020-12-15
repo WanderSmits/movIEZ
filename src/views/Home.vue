@@ -17,9 +17,18 @@
         </select>
       </div>
     </div>
-    <div class="movie-cards">
-      <movie-cards v-for="movie in movieList" :key="movie.id" :movie="movie" />
-    </div>
+    <transition
+      mode="out-in"
+      enter-active-class="animate__animated animate__pulse"
+    >
+      <div :key="movieList" class="movie-cards">
+        <movie-cards
+          v-for="movie in movieList"
+          :movie="movie"
+          :key="movie.id"
+        />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -39,6 +48,7 @@ export default Vue.extend({
     return {
       // Set Default select button as Favorites
       selected: "Favorites",
+      // Set Default sort-by empty
       sortBy: "",
     };
   },
@@ -84,7 +94,7 @@ export default Vue.extend({
   },
 
   mounted() {
-    // On load of the page, fetch default movies. In this case Favorites
+    // On load of the page, Dispatch action fetchFavorites.
     this.$store.dispatch("movies/fetchFavorites");
   },
 

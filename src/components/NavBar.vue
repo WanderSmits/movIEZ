@@ -25,12 +25,6 @@
   </nav>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-
-export default Vue.extend({});
-</script>
-
 <style scoped>
 nav {
   color: #fff;
@@ -43,7 +37,7 @@ nav {
   z-index: 10;
 }
 
-nav .nav-logo {
+.nav-logo {
   float: left;
   height: 100%;
   display: flex;
@@ -52,11 +46,7 @@ nav .nav-logo {
   color: #fff;
 }
 
-ul {
-  text-decoration: none;
-}
-
-nav .nav-links {
+.nav-links {
   float: right;
   width: 60%;
   height: 100%;
@@ -65,7 +55,7 @@ nav .nav-links {
   align-items: center;
 }
 
-nav a {
+.nav-links {
   text-decoration: none;
   color: #fff;
   display: block;
@@ -74,15 +64,15 @@ nav a {
   font-weight: bold;
 }
 
-nav strong {
+.nav-links > strong {
   color: rgb(231, 22, 22);
 }
 
-nav a.router-link-exact-active h4 {
+.nav-links.router-link-exact-active h4 {
   color: rgb(231, 22, 22);
 }
 
-nav .nav-links li {
+.nav-links li {
   list-style: none;
   text-decoration: none;
 }

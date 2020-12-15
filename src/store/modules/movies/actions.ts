@@ -39,32 +39,35 @@ export interface Actions {
   ): void;
 }
 
-// All the actions itself, fetches data
+// All the actions itself, fetching data
 export const actions: ActionTree<State, State> & Actions = {
+  // fetchFavorites
   async [ActionTypes.GET_FAVORITES]({ commit }) {
     await axios
       .get(`${FETCH_URL}list/7067876?api_key=${API_KEY}&language=en-US`)
       .then((data) => {
         const favorites: Array<MovieResult> = data.data.items;
-        console.log(favorites);
         commit(MutationTypes.SET_FAVORITES, favorites);
       })
       .catch((error) => {
         console.log(error);
       });
   },
+
+  // fetchTrending
   async [ActionTypes.GET_TRENDING]({ commit }) {
     await axios
       .get(`${FETCH_URL}trending/all/day?api_key=${API_KEY}`)
       .then((data) => {
         const trending: Array<MovieResult> = data.data.results;
-        console.log(trending);
         commit(MutationTypes.SET_TRENDING, trending);
       })
       .catch((error) => {
         console.log(error);
       });
   },
+
+  // fetchTopRated
   async [ActionTypes.GET_TOP_RATED]({ commit }) {
     await axios
       .get(
@@ -79,6 +82,7 @@ export const actions: ActionTree<State, State> & Actions = {
       });
   },
 
+  // fetchTrailer
   async [ActionTypes.GET_TRAILER]({ commit }, movieId) {
     await axios
       .get(
@@ -86,7 +90,6 @@ export const actions: ActionTree<State, State> & Actions = {
       )
       .then((data) => {
         const trailer = data.data.results;
-        console.log(trailer);
         commit(MutationTypes.SET_TRAILER, trailer);
       })
       .catch((error) => {
@@ -94,15 +97,17 @@ export const actions: ActionTree<State, State> & Actions = {
       });
   },
 
+  // fetchRandomMovie
   async [ActionTypes.GET_RANDOM]({ commit }) {
+    // Fetch a different page every load, up to 500 pages
     const randomPage = Math.floor(Math.random() * 500);
     axios
       .get(
         `${FETCH_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${randomPage}&release_date.gte=0.0`
       )
       .then((data) => {
+        // Returns a results array of twenty movies
         const random = data.data.results;
-        console.log(random);
         commit(MutationTypes.SET_RANDOM, random);
       })
       .catch((error) => {

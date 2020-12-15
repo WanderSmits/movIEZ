@@ -1,70 +1,80 @@
 <template>
   <footer class="site-footer">
-    <div class="footer-about">
-      <h6>About</h6>
-      <div class="footer-sitemap">
-        <xml:v-on version="1.0" encoding="UTF-8">
-          <urlset
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/TR/xhtml11/xhtml11_schema.html http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
-            xmlns:v-on="http://www.sitemaps.org/schemas/sitemap/0.9"
-            xmlns:xhtml="http://www.w3.org/TR/xhtml11/xhtml11_schema.html"
-          >
-            <router-link :to="{ name: 'Home' }">
-              <url>
-                <loc>http://localhost:8080/#/</loc>
-                <lastmod>2020-12-14T09:48:08+00:00</lastmod>
-                <priority>0.8</priority>
-              </url>
-            </router-link>
-          </urlset>
-        </xml:v-on>
-      </div>
-    </div>
-
+    <!-- Blank line in footer -->
     <hr />
-    <p class="footer-copy">
-      Copyright &copy; 2020
-    </p>
+
+    <div class="footer-sitemap">
+      <div
+        class="footer-homepage"
+        xlink:type="simple"
+        xlink:href="http://localhost:8080/#/"
+      >
+        <router-link :to="{ name: 'Home' }">
+          <h5>Home</h5>
+        </router-link>
+      </div>
+      <div
+        class="footer-category"
+        xlink:type="simple"
+        xlink:href="http://localhost:8080/#/categories"
+      >
+        <router-link :to="{ name: 'Categories' }">
+          <h5>Categories</h5>
+        </router-link>
+      </div>
+      <div
+        class="footer-random"
+        xlink:type="simple"
+        xlink:href="http://localhost:8080/#/random"
+      >
+        <router-link :to="{ name: 'Random' }">
+          <h5>Random</h5>
+        </router-link>
+      </div>
+
+      <p class="footer-copy">
+        Copyright &copy; 2020
+      </p>
+    </div>
   </footer>
 </template>
-
-<script lang="ts">
-import Vue from "vue";
-
-export default Vue.extend({
-  methods: {
-    showXml() {
-      return;
-    },
-  },
-});
-</script>
 
 <style scoped>
 .site-footer {
   position: relative;
-  background: rgba(0, 0, 0, 0.9);
-  padding: 45px 0 20px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5vh 0 2vh;
   font-size: 15px;
-  line-height: 24px;
-  color: #737373;
+  color: white;
 }
 
-.footer-about {
-  color: #fff;
-  font-size: 16px;
-  text-transform: uppercase;
-  margin-top: 5px;
-  letter-spacing: 2px;
+.footer-sitemap {
+  display: grid;
+  grid-template-columns: 12fr repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
-.footer-something {
+.footer-sitemap a {
+  text-decoration: none;
   color: #fff;
-  font-size: 10px;
-  text-transform: uppercase;
-  margin-top: 5px;
-  letter-spacing: 2px;
+}
+
+a.router-link-exact-active h5 {
+  color: rgb(231, 22, 22);
+}
+
+.footer-homepage {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.footer-category {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.footer-random {
+  grid-area: 1 / 4 / 2 / 5;
 }
 
 /* add blank line to divide footer with the bottom */
@@ -80,13 +90,10 @@ export default Vue.extend({
   margin-top: 5px;
 }
 
-.footer-sitemap {
-  float: right;
-}
-
 @media (max-width: 991px) {
-  .site-footer [class^="col-"] {
+  .site-footer {
     margin-bottom: 30px;
+    padding-bottom: 0;
   }
 }
 @media (max-width: 767px) {

@@ -14,6 +14,7 @@
     <div class="random-button">
       <button @click="handleClick">Randomizer</button>
     </div>
+
     <div class="random-movie">
       <random-movies :movieObject="movieObject" />
     </div>
@@ -22,7 +23,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapState } from "vuex";
 import RandomMovies from "@/components/RandomMovies.vue";
 
 export default Vue.extend({
@@ -31,7 +31,7 @@ export default Vue.extend({
 
   data() {
     return {
-      // Setting the movieObject to an empty object, so nothing is being shown on load
+      // Empty object so page is empty on load
       movieObject: {},
     };
   },
@@ -44,12 +44,16 @@ export default Vue.extend({
       this.movieObject = this.$store.state.movies.randomMovie;
     },
   },
+  mounted() {
+    // Dispatch on load, so you do not have to click twice first load
+    this.handleClick();
+  },
 });
 </script>
 
 <style scoped>
 .random-page {
-  height: 82vh;
+  height: 86vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr) 0.2fr repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -64,29 +68,46 @@ export default Vue.extend({
 
 .explanation {
   grid-area: 3 / 1 / 3 / 3;
+  width: 60vh;
   position: relative;
+  left: 14vh;
   bottom: 5vh;
   text-align: center;
+}
+
+.explanation p {
+  width: 100%;
+  height: auto;
 }
 
 .random-button {
   text-align: center;
   grid-area: 4 / 1 / 4 / 3;
+  position: relative;
+  left: 34vh;
+  width: 20vh;
+  height: 8vh;
 }
 
 .random-button > button {
-  border-radius: 1rem;
+  /* have a seethrough button with red borders  */
+  border-color: rgb(184, 15, 15);
+  background: rgb(20, 20, 20);
+  border-radius: 0.5vh;
   color: white;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  width: 20vh;
-  height: 8vh;
+  padding: 3vh 6vh;
   outline: none;
+  width: 100%;
+  height: auto;
 }
 
 .random-button > button:hover {
+  /* slowly transition the red color on hover */
+  transition-duration: 0.7s;
+  background: rgb(184, 15, 15);
+  color: white;
+  transform: scale(1.05);
   cursor: pointer;
-  transform: scale(1.03);
 }
 
 .random-movie {

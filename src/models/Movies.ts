@@ -29,8 +29,3 @@ export interface MovieTrailer {
   size: number;
   type: string;
 }
-
-export interface RouteTypes {
-  path: string;
-  name: string;
-}

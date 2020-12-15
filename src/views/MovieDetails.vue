@@ -47,11 +47,6 @@ export default Vue.extend({
     this.$store.dispatch("movies/fetchTrailer", this.movieId);
   },
 
-  methods: {
-    clickSomething() {
-      console.log("Hey");
-    },
-  },
   computed: {
     ...mapState("movies/", ["movieTrailer"]),
   },
@@ -60,7 +55,7 @@ export default Vue.extend({
 
 <style scoped>
 .parent {
-  height: 82vh;
+  height: 86vh;
   display: grid;
   grid-template-columns: 0.5fr repeat(3, 1fr) 0.5fr repeat(3, 1fr) 0.5fr;
   grid-template-rows: 0.5fr repeat(10, 1fr);

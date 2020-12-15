@@ -4,7 +4,13 @@
       <nav-bar />
     </div>
     <div class="main">
-      <router-view />
+      <transition
+        mode="out-in"
+        enter-active-class="animate__animated animate__fadeIn"
+        leave-active-class="animate__animated animate__fadeOut"
+      >
+        <router-view />
+      </transition>
     </div>
     <div class="footer"><foot /></div>
   </div>
@@ -25,7 +31,7 @@ export default Vue.extend({
 
 <style>
 * {
-  /* Makes sure there is no blank spaces between the nav and the homepage */
+  /* No blank spaces between the nav and the homepage */
   margin: 0 !important;
 }
 #app {

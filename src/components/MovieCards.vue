@@ -1,5 +1,5 @@
 <template>
-  <div class="movie-card">
+  <div :key="movie" class="movie-card">
     <router-link
       :to="{
         name: 'MovieDetails',
@@ -83,6 +83,7 @@ export default Vue.extend({
 }
 
 a {
+  /* So there is line under text */
   text-decoration: none;
 }
 .movie-details > p {

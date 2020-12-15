@@ -12,29 +12,33 @@ export type Mutations<S = State> = {
   [MutationTypes.SET_RANDOM](state: S, payload: Array<MovieResult>): void;
 };
 
+// Favorite Mutation
 export const mutations: MutationTree<State> & Mutations = {
   [MutationTypes.SET_FAVORITES](state, payload) {
     state.movieList = payload;
   },
 
+  // Trending mutation
   [MutationTypes.SET_TRENDING](state, payload) {
     //Only return the first ten elements of the array
-    const reducedMovies = payload.slice(0, 10).map((i) => {
-      return i;
+    const reducedMovies = payload.slice(0, 10).map((movie) => {
+      return movie;
     });
 
     state.movieList = reducedMovies;
   },
 
+  // Top rated Mutation
   [MutationTypes.SET_TOP_RATED](state, payload) {
     //Only return the first ten elements of the array
-    const reducedMovies = payload.slice(0, 10).map((i) => {
-      return i;
+    const reducedMovies = payload.slice(0, 10).map((movie) => {
+      return movie;
     });
 
     state.movieList = reducedMovies;
   },
 
+  // Trailer mutation
   [MutationTypes.SET_TRAILER](state, payload) {
     //Get only the data from the array of video.type = "Trailer"
     const trailers = payload.filter((video) => {
@@ -46,13 +50,14 @@ export const mutations: MutationTree<State> & Mutations = {
       return trailer.key;
     });
 
-    // getting one videoKey out of the videoKeys array by getting the last item,
-    // because there is a possibility there is no videoKey I gave it an 'or'-statement of an empty string
+    // Getting one videoKey out of the videoKeys array by getting the last item, using pop().
+    // Because there is a possibility there is no videoKey I gave it an 'or'-statement of an empty string
     const videoKey: string = videoKeys.pop() || "";
 
     state.movieTrailer = videoKey;
   },
 
+  // Random mutation
   [MutationTypes.SET_RANDOM](state, payload) {
     //pick one movie out the array of movies
     const movie: MovieResult =
