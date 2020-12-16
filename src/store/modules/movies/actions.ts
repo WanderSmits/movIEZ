@@ -5,7 +5,7 @@ import { MutationTypes } from "./mutation-types";
 import { ActionTypes } from "./action-types";
 import axios from "axios";
 import { MovieResult } from "@/models/Movies";
-import { FETCH_URL, API_KEY } from "@/config";
+import { FETCH_URL, API_KEY } from "@/api";
 
 // AugmentedActionContext handles the type of the commit
 type AugmentedActionContext = {

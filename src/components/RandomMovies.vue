@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { MOVIE_POSTER_URL, MOVIE_BACKGROUND_SMALL } from "@/config";
+import { MOVIE_POSTER_URL, MOVIE_BACKGROUND_SMALL } from "@/api";
 
 export default Vue.extend({
   name: "RandomMovies",

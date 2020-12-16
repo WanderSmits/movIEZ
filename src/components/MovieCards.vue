@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { MOVIE_BACKGROUND_SMALL } from "@/config";
+import { MOVIE_BACKGROUND_SMALL } from "@/api";
 
 export default Vue.extend({
   name: "MovieCards",

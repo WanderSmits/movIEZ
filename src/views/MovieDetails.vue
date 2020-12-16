@@ -27,12 +27,12 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapState } from "vuex";
-import { YOUTUBE_URL, MOVIE_BACKGROUND_URL } from "@/config";
+import { YOUTUBE_URL, MOVIE_BACKGROUND_URL } from "@/api";
 
 export default Vue.extend({
   data() {
     return {
-      // Url's given from @/config
+      // Url's given from api.ts
       youtubeUrl: YOUTUBE_URL,
       movieBackground: MOVIE_BACKGROUND_URL,
       movieTitle: this.$route.query.title,
@@ -60,13 +60,14 @@ export default Vue.extend({
   height: 87vh;
   display: grid;
   grid-template-columns: 0.5fr repeat(3, 1fr) 0.5fr repeat(3, 1fr) 0.5fr;
-  grid-template-rows: 0.5fr repeat(10, 1fr);
+  grid-template-rows: 0.5fr repeat(10, auto);
   grid-column-gap: 0px;
   grid-row-gap: 10px;
 }
 
 .movie-title {
-  grid-area: 2 / 4 / 3 / 7;
+  grid-area: 1 / 4 / 2 / 7;
+  padding-top: 7vh;
   text-align: center;
 }
 .movie-poster {
@@ -81,17 +82,19 @@ export default Vue.extend({
 }
 
 .movie-trailer {
+  /* when it collapse show the trailer over the p element */
+  z-index: 100;
   grid-area: 4 / 6 / 8 / 9;
+  height: 30vh;
 }
 
 .movie-trailer > iframe {
   border-radius: 3vh;
 }
 .movie-description {
-  grid-area: 7 / 6 / 9 / 9;
+  grid-area: 7 / 6 / 8 / 9;
   position: relative;
-  top: 15vh;
-  height: 10vh;
+  top: 7vh;
 }
 
 .movie-description p {
