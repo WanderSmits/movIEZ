@@ -18,6 +18,7 @@
       </li>
     </ul>
     <label for="nav-toggle" class="nav-menu">
+      <!-- Making the collapsed menu three lines underneath each other -->
       <div class="nav-line"></div>
       <div class="nav-line"></div>
       <div class="nav-line"></div>
@@ -136,6 +137,7 @@ nav .nav-menu .nav-line {
     /* when collapsed, make nav-links full height of window */
     bottom: 0;
   }
+
   nav .nav-menu {
     display: block;
   }
