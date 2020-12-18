@@ -136,6 +136,7 @@ nav .nav-menu .nav-line {
     /* when collapsed, make nav-links full height of window */
     bottom: 0;
   }
+
   nav .nav-menu {
     display: block;
   }
