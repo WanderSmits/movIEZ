@@ -41,21 +41,4 @@ const router = new VueRouter({
   routes,
 });
 
-// Gets all the routes of the App.
-export function getRoutesList(routes: Array<RouteConfig>, pre: string) {
-  return routes.reduce((array: Array<string>, route) => {
-    const path = `${pre}${route.path}`;
-
-    if (route.path !== "*") {
-      array.push(path);
-    }
-
-    if (route.children) {
-      array.push(...getRoutesList(route.children, `${path}/`));
-    }
-
-    return array;
-  }, []);
-}
-
 export default router;

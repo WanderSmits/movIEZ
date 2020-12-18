@@ -18,6 +18,7 @@
       </li>
     </ul>
     <label for="nav-toggle" class="nav-menu">
+      <!-- Making the collapsed menu three lines underneath each other -->
       <div class="nav-line"></div>
       <div class="nav-line"></div>
       <div class="nav-line"></div>
