@@ -3,7 +3,7 @@
     mode="out-in"
     enter-active-class="animate__animated animate__fadeIn"
   >
-    <div :key="movieObject" class="random">
+    <div :key="movieObject.id" class="random">
       <div class="movie-title">
         <h1>
           {{ movieObject.title }}
@@ -15,6 +15,7 @@
         <img
           v-if="movieObject.poster_path"
           :src="`${movieUrl}${movieObject.poster_path}`"
+          :alt="movieObject.title"
         />
         <div v-else></div>
       </div>

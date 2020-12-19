@@ -1,7 +1,7 @@
 <template>
   <div class="parent">
     <div class="movie-poster">
-      <img :src="`${movieBackground}${background}`" alt="movieTitle" />
+      <img :src="`${movieBackground}${background}`" :alt="movieTitle" />
     </div>
     <div class="movie-title">
       <!-- Because some of the movies given don't have a title but they do have a movie name -->

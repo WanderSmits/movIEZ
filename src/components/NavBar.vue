@@ -26,6 +26,26 @@
   </nav>
 </template>
 
+<script lang="ts">
+import Vue from "vue";
+export default Vue.extend({
+  data() {
+    return {
+      condition: false,
+    };
+  },
+
+  // methods: {
+  //   toggleCondition() {
+  //     this.condition = !this.condition;
+  //   },
+  //   styleObject() {
+  //     return this.condition ? { background: "red" } : { background: "blue" };
+  //   },
+  // },
+});
+</script>
+
 <style scoped>
 nav {
   color: #fff;

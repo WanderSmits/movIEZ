@@ -5,4 +5,5 @@ export enum MutationTypes {
   SET_TOP_RATED = "SET_TOP_RATED",
   SET_TRAILER = "SET_TRAILER",
   SET_RANDOM = "SET_RANDOM",
+  SET_ACTION = "SET_ACTION",
 }

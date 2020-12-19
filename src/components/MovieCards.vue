@@ -1,5 +1,5 @@
 <template>
-  <div :key="movie" class="movie-card">
+  <div class="movie-card">
     <router-link
       :to="{
         name: 'MovieDetails',
@@ -97,14 +97,5 @@ a {
   color: #f8f8f8;
   position: relative;
   float: right;
-}
-
-/* */
-@media screen and (max-width: 600px) {
-  .movie-card {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
 }
 </style>

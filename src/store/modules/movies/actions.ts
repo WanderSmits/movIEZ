@@ -37,6 +37,10 @@ export interface Actions {
     { commit }: AugmentedActionContext,
     payload: Array<MovieResult>
   ): void;
+  [ActionTypes.GET_ACTION](
+    { commit }: AugmentedActionContext,
+    payload: Array<MovieResult>
+  ): void;
 }
 
 // All the actions itself, fetching data
@@ -109,6 +113,22 @@ export const actions: ActionTree<State, State> & Actions = {
         // Returns a results array of twenty movies
         const random = data.data.results;
         commit(MutationTypes.SET_RANDOM, random);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+
+  // fetchActionMovie
+  async [ActionTypes.GET_ACTION]({ commit }) {
+    console.log("HAllo?");
+    await axios
+      // 28 is the type of actions
+      .get(`${FETCH_URL}discover/movie?api_key=${API_KEY}&with_genres=28`)
+      .then((data) => {
+        const actionMovies: Array<MovieResult> = data.data.results;
+        console.log(actionMovies);
+        commit(MutationTypes.SET_ACTION, actionMovies);
       })
       .catch((error) => {
         console.log(error);

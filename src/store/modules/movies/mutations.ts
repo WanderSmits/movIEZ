@@ -10,6 +10,7 @@ export type Mutations<S = State> = {
   [MutationTypes.SET_TOP_RATED](state: S, payload: Array<MovieResult>): void;
   [MutationTypes.SET_TRAILER](state: S, payload: Array<MovieTrailer>): void;
   [MutationTypes.SET_RANDOM](state: S, payload: Array<MovieResult>): void;
+  [MutationTypes.SET_ACTION](state: S, payload: Array<MovieResult>): void;
 };
 
 // Favorite Mutation
@@ -21,9 +22,7 @@ export const mutations: MutationTree<State> & Mutations = {
   // Trending mutation
   [MutationTypes.SET_TRENDING](state, payload) {
     //Only return the first ten elements of the array
-    const reducedMovies = payload.slice(0, 10).map((movie) => {
-      return movie;
-    });
+    const reducedMovies = payload.slice(0, 10);
 
     state.movieList = reducedMovies;
   },
@@ -31,9 +30,7 @@ export const mutations: MutationTree<State> & Mutations = {
   // Top rated Mutation
   [MutationTypes.SET_TOP_RATED](state, payload) {
     //Only return the first ten elements of the array
-    const reducedMovies = payload.slice(0, 10).map((movie) => {
-      return movie;
-    });
+    const reducedMovies = payload.slice(0, 10);
 
     state.movieList = reducedMovies;
   },
@@ -64,5 +61,11 @@ export const mutations: MutationTree<State> & Mutations = {
       payload[Math.floor(Math.random() * payload.length)];
 
     state.randomMovie = movie;
+  },
+
+  [MutationTypes.SET_ACTION](state, payload) {
+    //pick one movie out the array of movies
+
+    state.randomMovie = payload;
   },
 };

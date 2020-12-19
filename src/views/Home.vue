@@ -23,7 +23,8 @@
       enter-active-class="animate__animated animate__fadeIn"
     >
       <!-- The MovieCards Component -->
-      <div :key="movieList" class="movie-cards">
+
+      <div class="movie-cards" :key="movieList.id">
         <movie-cards
           v-for="movie in movieList"
           :movie="movie"
@@ -113,10 +114,8 @@ export default Vue.extend({
 }
 
 .movie-cards {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(35vh, 1fr));
-  grid-gap: 20px;
   align-items: stretch;
   padding-right: 1vh;
   padding-left: 1vh;
