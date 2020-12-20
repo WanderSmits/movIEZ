@@ -5,10 +5,7 @@
         name: 'MovieDetails',
         params: { id: movie.id },
         query: {
-          title: movie.title,
-          background: movie.backdrop_path,
-          description: movie.overview,
-          name: movie.name,
+          movie: movie,
         },
       }"
     >
@@ -19,7 +16,10 @@
         <!-- Some of the movie titles in the API are under movie.name -->
         <p>{{ movie.title ? movie.title : movie.name }}</p>
         <div class="movie-rating">
-          <p>{{ `${movie.vote_average}/10` }}</p>
+          <p>
+            <!-- If movie has a rating show it, else show nothing-->
+            {{ movie.vote_average !== 0 ? `${movie.vote_average}/10` : "" }}
+          </p>
         </div>
       </div>
     </router-link>

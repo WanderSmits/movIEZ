@@ -1,23 +1,26 @@
 <template>
-  <div class="random-page">
-    <div class="movie-title">
-      <h1>What to watch tonight?!</h1>
-    </div>
-    <div class="explanation">
-      <p>
-        We have all been there... You come home from a long day at work and you
-        want to watch a movie, but you are not sure which one. Instead of
-        scrolling on netflix for hours, just take the plunge and watch the movie
-        that is being randomized for you!
-      </p>
-    </div>
-    <div class="random-button">
-      <button @click="handleClick">Randomizer</button>
-    </div>
-
-    <!-- The RandomMovies component-->
-    <div class="random-movie">
-      <random-movies :movieObject="movieObject" />
+  <div class="something">
+    <div class="random-page">
+      <div class="random-explanation">
+        <div class="movie-title">
+          <h1>What to watch tonight?!</h1>
+        </div>
+        <div class="explanation">
+          <p>
+            We have all been there... You come home from a long day at work and
+            you want to watch a movie, but you are not sure which one. Instead
+            of scrolling on netflix for hours, just take the plunge and watch
+            the movie that is being randomized for you!
+          </p>
+        </div>
+        <div class="random-button">
+          <button @click="handleClick">Randomizer</button>
+        </div>
+      </div>
+      <!-- The RandomMovies component-->
+      <div class="random-movie">
+        <random-movies :movieObject="movieObject" />
+      </div>
     </div>
   </div>
 </template>
@@ -42,7 +45,7 @@ export default Vue.extend({
       // Fetches random Movie
       this.$store.dispatch(`movies/fetchRandomMovie`);
       // Populate data into the movieObject
-      this.movieObject = this.$store.state.movies.randomMovie;
+      this.movieObject = this.$store.getters["movies/randomMovie"];
     },
   },
   mounted() {
@@ -54,40 +57,52 @@ export default Vue.extend({
 
 <style scoped>
 .random-page {
-  height: 87vh;
   display: grid;
-  grid-template-columns: repeat(2, 1fr) 0.2fr repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.random-movie {
+  height: 87vh;
+
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.random-explanation {
+  grid-area: 1 / 1 / 2 / 2;
+  height: 87vh;
+
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-rows: 0.5fr 0.7fr repeat(2, 1fr) 0.5fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
 .movie-title {
-  grid-area: 2 / 1 / 6 / 3;
+  grid-area: 2 / 2 / 3 / 3;
   text-align: center;
 }
 
 .explanation {
-  grid-area: 3 / 1 / 3 / 3;
-  width: 60vh;
-  position: relative;
-  left: 14vh;
-  bottom: 5vh;
+  grid-area: 3 / 2 / 4 / 3;
   text-align: center;
 }
 
 .explanation p {
   width: 100%;
   height: auto;
+  position: relative;
+  top: 5vh;
 }
 
 .random-button {
-  text-align: center;
-  grid-area: 4 / 1 / 4 / 3;
+  grid-area: 4 / 2 / 5 / 3;
   position: relative;
-  left: 34vh;
-  width: 20vh;
-  height: 8vh;
+  width: 100%;
+  top: 5vh;
 }
 
 .random-button > button {
@@ -111,7 +126,35 @@ export default Vue.extend({
   cursor: pointer;
 }
 
-.random-movie {
-  grid-area: 1 / 4 / 6 / 6;
+@media screen and (max-height: 600px) {
+  .random-page {
+    display: table;
+    overflow: hidden;
+  }
+
+  .random-button > button {
+    position: relative;
+    top: 5vh;
+  }
+  .random-movie {
+    height: 100%;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .random-page {
+    display: table;
+    overflow: hidden;
+  }
+
+  .random-button > button {
+    position: relative;
+    top: 5vh;
+  }
+  .random-movie {
+    height: 100vh;
+    width: auto;
+  }
 }
 </style>

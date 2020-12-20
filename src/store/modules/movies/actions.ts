@@ -41,6 +41,18 @@ export interface Actions {
     { commit }: AugmentedActionContext,
     payload: Array<MovieResult>
   ): void;
+  [ActionTypes.GET_COMEDY](
+    { commit }: AugmentedActionContext,
+    payload: Array<MovieResult>
+  ): void;
+  [ActionTypes.GET_HORROR](
+    { commit }: AugmentedActionContext,
+    payload: Array<MovieResult>
+  ): void;
+  [ActionTypes.GET_SCIFI](
+    { commit }: AugmentedActionContext,
+    payload: Array<MovieResult>
+  ): void;
 }
 
 // All the actions itself, fetching data
@@ -121,7 +133,6 @@ export const actions: ActionTree<State, State> & Actions = {
 
   // fetchActionMovie
   async [ActionTypes.GET_ACTION]({ commit }) {
-    console.log("HAllo?");
     await axios
       // 28 is the type of actions
       .get(`${FETCH_URL}discover/movie?api_key=${API_KEY}&with_genres=28`)
@@ -129,6 +140,49 @@ export const actions: ActionTree<State, State> & Actions = {
         const actionMovies: Array<MovieResult> = data.data.results;
         console.log(actionMovies);
         commit(MutationTypes.SET_ACTION, actionMovies);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+
+  // fetchComedyMovie
+  async [ActionTypes.GET_COMEDY]({ commit }) {
+    await axios
+      // 28 is the type of actions
+      .get(`${FETCH_URL}discover/movie?api_key=${API_KEY}&with_genres=35`)
+      .then((data) => {
+        const comedyMovies: Array<MovieResult> = data.data.results;
+        console.log(comedyMovies);
+        commit(MutationTypes.SET_COMEDY, comedyMovies);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+
+  //fetchHorrorMovie
+  async [ActionTypes.GET_HORROR]({ commit }) {
+    await axios
+      // 28 is the type of actions
+      .get(`${FETCH_URL}discover/movie?api_key=${API_KEY}&with_genres=27`)
+      .then((data) => {
+        const horrorMovies: Array<MovieResult> = data.data.results;
+        commit(MutationTypes.SET_HORROR, horrorMovies);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+
+  //fetchScifiMovies
+  async [ActionTypes.GET_SCIFI]({ commit }) {
+    await axios
+      // 28 is the type of actions
+      .get(`${FETCH_URL}discover/movie?api_key=${API_KEY}&with_genres=878`)
+      .then((data) => {
+        const scifiMovies: Array<MovieResult> = data.data.results;
+        commit(MutationTypes.SET_SCIFI, scifiMovies);
       })
       .catch((error) => {
         console.log(error);

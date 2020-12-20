@@ -17,6 +17,7 @@
         </select>
       </div>
     </div>
+
     <!-- Transition on loading the Cards -->
     <transition
       mode="out-in"
@@ -38,7 +39,7 @@
 <script lang="ts">
 import Vue from "vue";
 import MovieCards from "@/components/MovieCards.vue";
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import { MovieResult } from "@/models/Movies";
 
 export default Vue.extend({
@@ -75,7 +76,7 @@ export default Vue.extend({
     onChangeSort() {
       // If the select buttons says Title, sort by title, else sort by ratings
       if (this.sortBy === "Title") {
-        this.$store.state.movies.movieList.sort(
+        this.$store.getters["movies/movieList"].sort(
           (firstMovie: MovieResult, secondMovie: MovieResult) =>
             // TS gave an error about Because of the possibly of an undefined value, Workaround by checking if both titles are not undefined
             firstMovie.title && secondMovie.title
@@ -84,7 +85,7 @@ export default Vue.extend({
               : ""
         );
       } else {
-        this.$store.state.movies.movieList.sort(
+        this.$store.getters["movies/movieList"].sort(
           (firstMovie: MovieResult, secondMovie: MovieResult) =>
             // TS gave an error about Because of the possibly of an undefined value, Workaround by checking if both titles are not undefined
             firstMovie.vote_average && secondMovie.vote_average
@@ -103,7 +104,7 @@ export default Vue.extend({
 
   computed: {
     // Get the state of the page on load
-    ...mapState("movies/", ["movieList"]),
+    ...mapGetters("movies/", ["movieList"]),
   },
 });
 </script>

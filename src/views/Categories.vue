@@ -2,15 +2,43 @@
   <div class="category-page">
     <h1>Categories</h1>
     <!-- Dummy text -->
+    <div class="category-action">
+      <router-link :to="{ name: 'CategoryList' }">
+        <img
+          @click="actionMovie"
+          src="@/assets/images/action.png"
+          alt="action"
+        />
+      </router-link>
+    </div>
 
-    <img
-      class="category-action"
-      @click="actionMovie"
-      src="@/assets/images/action.png"
-    />
-    <img class="category-comedy" src="@/assets/images/comedy.png" />
-    <img class="category-horror" src="@/assets/images/horror.png" />
-    <img class="category-sci-fi" src="@/assets/images/sci-fi.png" />
+    <div class="category-comedy">
+      <router-link :to="{ name: 'CategoryList' }">
+        <img
+          @click="comedyMovie"
+          src="@/assets/images/comedy.png"
+          alt="comedy"
+        />
+      </router-link>
+    </div>
+    <div class="category-horror">
+      <router-link :to="{ name: 'CategoryList' }">
+        <img
+          @click="horrorMovie"
+          src="@/assets/images/horror.png"
+          alt="horror"
+        />
+      </router-link>
+    </div>
+    <div class="category-sci-fi">
+      <router-link :to="{ name: 'CategoryList' }">
+        <img
+          @click="scifiMovie"
+          src="@/assets/images/sci-fi.png"
+          alt="sci-fi"
+        />
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -22,8 +50,16 @@ export default Vue.extend({
 
   methods: {
     actionMovie() {
-      console.log("Hans");
       this.$store.dispatch(`movies/fetchActionMovies`);
+    },
+    comedyMovie() {
+      this.$store.dispatch(`movies/fetchComedyMovies`);
+    },
+    horrorMovie() {
+      this.$store.dispatch(`movies/fetchHorrorMovies`);
+    },
+    scifiMovie() {
+      this.$store.dispatch(`movies/fetchScifiMovies`);
     },
   },
 });
@@ -79,9 +115,6 @@ h1 {
   .category-page {
     display: table;
     overflow-x: hidden;
-  }
-  .category-action {
-    width: 100%;
   }
 }
 </style>

@@ -22,7 +22,7 @@ export const routes: Array<RouteConfig> = [
     component: Categories,
   },
   {
-    path: "/categories/:id",
+    path: "/categorieList",
     name: "CategoryList",
     component: CategoryList,
   },

@@ -1,16 +1,19 @@
 <template>
-  <div class="parent">
+  <div class="movie-details">
     <div class="movie-poster">
-      <img :src="`${movieBackground}${background}`" :alt="movieTitle" />
+      <img
+        :src="`${movieBackground}${movie.backdrop_path}`"
+        :alt="movie.movieTitle"
+      />
     </div>
     <div class="movie-title">
       <!-- Because some of the movies given don't have a title but they do have a movie name -->
       <h1>
-        {{ movieTitle ? movieTitle : movieName }}
+        {{ movie.title ? movie.title : movie.name }}
       </h1>
     </div>
     <div class="movie-description">
-      <p>{{ description }}</p>
+      <p>{{ movie.overview }}</p>
     </div>
     <div class="movie-trailer">
       <iframe
@@ -26,7 +29,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import { YOUTUBE_URL, MOVIE_BACKGROUND_URL } from "@/api";
 
 export default Vue.extend({
@@ -35,7 +38,7 @@ export default Vue.extend({
       // Url's given from api.ts
       youtubeUrl: YOUTUBE_URL,
       movieBackground: MOVIE_BACKGROUND_URL,
-      movieTitle: this.$route.query.title,
+      movie: this.$route.query.movie,
       movieName: this.$route.query.name,
       background: this.$route.query.background,
       description: this.$route.query.description,
@@ -50,55 +53,77 @@ export default Vue.extend({
 
   computed: {
     // Get trailer state
-    ...mapState("movies/", ["movieTrailer"]),
+    ...mapGetters("movies/", ["movieTrailer"]),
   },
 });
 </script>
 
 <style scoped>
-.parent {
+.movie-details {
   height: 87vh;
   display: grid;
-  grid-template-columns: 0.5fr repeat(3, 1fr) 0.5fr repeat(3, 1fr) 0.5fr;
-  grid-template-rows: 0.5fr repeat(10, auto);
+  padding: 2vh;
+  grid-template-columns: repeat(2, 1fr) 0.1fr repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 10px;
+  overflow: hidden;
+  position: relative;
+  bottom: 7vh;
 }
-
 .movie-title {
-  grid-area: 1 / 4 / 2 / 7;
+  grid-area: 1 / 2 / 2 / 5;
   padding-top: 7vh;
   text-align: center;
 }
 .movie-poster {
-  grid-area: 4 / 2 / 9 / 5;
+  grid-area: 3 / 1 / 6 / 3;
   height: 45vh;
 }
-
 .movie-poster > img {
   border-radius: 3vh;
-  width: 100%;
   height: auto;
+  width: 100%;
 }
-
 .movie-trailer {
   /* when it collapse show the trailer over the p element */
-  z-index: 100;
-  grid-area: 4 / 6 / 8 / 9;
+  grid-area: 3 / 4 / 5 / 6;
   height: 30vh;
 }
-
 .movie-trailer > iframe {
   border-radius: 3vh;
+  width: 100%;
 }
 .movie-description {
-  grid-area: 7 / 6 / 8 / 9;
-  position: relative;
-  top: 7vh;
+  grid-area: 5 / 4 / 7 / 6;
 }
-
 .movie-description p {
+  position: relative;
+  top: 10vh;
   width: 100%;
   height: auto;
+}
+
+@media screen and (max-width: 800px) {
+  .movie-details {
+    height: 150vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr repeat(3, 1fr);
+  }
+  .movie-title {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .movie-poster {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .movie-trailer {
+    grid-area: 3 / 1 / 4 / 2;
+    width: 100%;
+  }
+  .movie-description {
+    grid-area: 4 / 1 / 5 / 2;
+    overflow: auto;
+  }
 }
 </style>

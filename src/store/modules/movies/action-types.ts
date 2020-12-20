@@ -6,4 +6,7 @@ export enum ActionTypes {
   GET_TRAILER = "fetchTrailer",
   GET_RANDOM = "fetchRandomMovie",
   GET_ACTION = "fetchActionMovies",
+  GET_COMEDY = "fetchComedyMovies",
+  GET_HORROR = "fetchHorrorMovies",
+  GET_SCIFI = "fetchScifiMovies",
 }

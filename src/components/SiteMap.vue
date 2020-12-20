@@ -23,7 +23,7 @@ export default Vue.extend({
     },
     // Converting the routes to XML
     getRoutesXML() {
-      const list = this.getRoutesList(routes, "http://localhost:8080/#/")
+      const list = this.getRoutesList(routes, window.location.origin)
         .map((route) => `<url><loc>${route}</loc></url>`)
         .join("\r\n");
       return `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
@@ -35,12 +35,9 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-* {
-  height: 87vh;
-}
-
 .site {
   position: relative;
   top: 5vh;
+  height: 87vh;
 }
 </style>

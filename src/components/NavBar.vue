@@ -4,20 +4,20 @@
     <div class="nav-logo">
       <router-link :to="{ name: 'Home' }">Mov<strong>IEZ</strong> </router-link>
     </div>
-    <ul class="nav-links">
-      <li>
+    <ul class="nav-links" :style="collapsed ? collapseMenu : uncollapseMenu">
+      <li @click="onClick">
         <router-link :to="{ name: 'Home' }"><h4>Home</h4></router-link>
       </li>
-      <li>
+      <li @click="onClick">
         <router-link :to="{ name: 'Categories' }"
           ><h4>Categories</h4></router-link
         >
       </li>
-      <li>
+      <li @click="onClick">
         <router-link :to="{ name: 'Random' }"><h4>Random</h4></router-link>
       </li>
     </ul>
-    <label for="nav-toggle" class="nav-menu">
+    <label for="nav-toggle" @click="onClick" class="nav-menu">
       <!-- Making the collapsed menu three lines underneath each other -->
       <div class="nav-line"></div>
       <div class="nav-line"></div>
@@ -31,18 +31,22 @@ import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
-      condition: false,
+      collapsed: false,
+      collapseMenu: {
+        top: "100%",
+      },
+      uncollapseMenu: {
+        bottom: "0%",
+      },
     };
   },
 
-  // methods: {
-  //   toggleCondition() {
-  //     this.condition = !this.condition;
-  //   },
-  //   styleObject() {
-  //     return this.condition ? { background: "red" } : { background: "blue" };
-  //   },
-  // },
+  methods: {
+    onClick() {
+      this.collapsed = !this.collapsed;
+      console.log(this.collapsed);
+    },
+  },
 });
 </script>
 
@@ -117,6 +121,7 @@ nav .nav-menu {
   /* set nav-menu vertically in middle of nav */
   transform: translateY(-50%);
 }
+/*  the menu */
 nav .nav-menu .nav-line {
   width: 30px;
   height: 5px;
@@ -127,13 +132,7 @@ nav .nav-menu .nav-line {
 }
 
 @media screen and (max-width: 768px) {
-  nav .nav-logo {
-    float: none;
-    width: auto;
-    justify-content: center;
-  }
   nav .nav-links {
-    float: none;
     position: fixed;
     /* set links the full width and height of screen */
     left: 0;
@@ -146,16 +145,7 @@ nav .nav-menu .nav-line {
     justify-content: space-evenly;
     background-color: rgba(0, 0, 0, 0.7);
     overflow: hidden;
-    box-sizing: border-box;
-    transition: all 0.5s ease-in-out;
-  }
-  nav .nav-links li h4 {
-    font-size: 20px;
-  }
-
-  nav :checked ~ .nav-links {
-    /* when collapsed, make nav-links full height of window */
-    bottom: 0;
+    transition: all 0.3s ease-in-out;
   }
 
   nav .nav-menu {

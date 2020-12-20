@@ -52,39 +52,33 @@ export default Vue.extend({
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  overflow: hidden;
 }
-
 .movie-title {
   position: relative;
   top: 7vh;
   text-align: center;
   grid-area: 1 / 2 / 2 / 5;
 }
-
 .movie-title h1 {
   width: 100%;
   height: auto;
 }
-
 .movie-image {
   grid-area: 2 / 1 / 6 / 3;
   position: relative;
-  height: 33vh;
-  width: 33vh;
-  top: 10vh;
-}
 
+  top: 10vh;
+  display: inline-table;
+}
 .movie-image > img {
-  width: 100%;
+  width: 80%;
   height: auto;
   border-radius: 2vh;
 }
-
 .movie-description {
   grid-area: 5 / 4 / 6 / 6;
-  width: 90%;
 }
-
 .movie-description p {
   width: 100%;
   height: auto;
