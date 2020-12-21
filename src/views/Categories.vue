@@ -29,8 +29,6 @@ export default Vue.extend({
 <style scoped>
 .category-page {
   height: 87vh;
-  /* hides scrollbar */
-  overflow: hidden;
 }
 
 .categories {
@@ -59,6 +57,7 @@ h1 {
 @media screen and (max-width: 1100px) {
   .category-page {
     padding: 1vh;
+    /* So the genre tiles decide the height of the page */
     overflow: auto;
   }
 

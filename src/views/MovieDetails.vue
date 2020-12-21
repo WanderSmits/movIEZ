@@ -107,7 +107,7 @@ export default Vue.extend({
     height: 150vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr repeat(3, 1fr);
+    grid-template-rows: 0.4fr repeat(3, 1fr);
   }
   .movie-title {
     grid-area: 1 / 1 / 2 / 2;
