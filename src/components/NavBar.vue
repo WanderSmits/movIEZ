@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <input id="nav-toggle" type="checkbox" />
+    <input name="nav-toggle" id="nav-toggle" type="checkbox" />
     <div class="nav-logo">
       <router-link :to="{ name: 'Home' }">Mov<strong>IEZ</strong> </router-link>
     </div>
@@ -44,7 +44,6 @@ export default Vue.extend({
   methods: {
     onClick() {
       this.collapsed = !this.collapsed;
-      console.log(this.collapsed);
     },
   },
 });

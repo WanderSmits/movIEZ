@@ -5,7 +5,9 @@ import { MutationTypes } from "./mutation-types";
 import { ActionTypes } from "./action-types";
 import axios from "axios";
 import { MovieResult } from "@/models/Movies";
-import { FETCH_URL, API_KEY } from "@/api";
+import { FETCH_URL } from "@/api";
+
+const API_KEY = process.env.VUE_APP_API_KEY;
 
 // AugmentedActionContext handles the type of the commit
 type AugmentedActionContext = {
@@ -138,7 +140,6 @@ export const actions: ActionTree<State, State> & Actions = {
       .get(`${FETCH_URL}discover/movie?api_key=${API_KEY}&with_genres=28`)
       .then((data) => {
         const actionMovies: Array<MovieResult> = data.data.results;
-        console.log(actionMovies);
         commit(MutationTypes.SET_ACTION, actionMovies);
       })
       .catch((error) => {
@@ -153,7 +154,6 @@ export const actions: ActionTree<State, State> & Actions = {
       .get(`${FETCH_URL}discover/movie?api_key=${API_KEY}&with_genres=35`)
       .then((data) => {
         const comedyMovies: Array<MovieResult> = data.data.results;
-        console.log(comedyMovies);
         commit(MutationTypes.SET_COMEDY, comedyMovies);
       })
       .catch((error) => {

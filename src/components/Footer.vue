@@ -52,8 +52,6 @@ export default Vue.extend({});
   display: grid;
   grid-template-columns: 12fr repeat(3, 1fr);
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
 }
 
 .footer-pages a {

@@ -65,7 +65,6 @@ export default Vue.extend({
   padding: 2vh;
   grid-template-columns: repeat(2, 1fr) 0.1fr repeat(2, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  grid-column-gap: 0px;
   grid-row-gap: 10px;
   overflow: hidden;
   position: relative;

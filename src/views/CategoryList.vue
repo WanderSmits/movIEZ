@@ -2,12 +2,12 @@
   <div class="category">
     <div class="category-sort">
       <div class="sort-text">
-        <p>
+        <label for="sort">
           Sort by:
-        </p>
+        </label>
       </div>
       <div class="sort-options">
-        <select v-model="sortBy" @change="onChangeSort()">
+        <select name="sort" id="sort" v-model="sortBy" @change="onChangeSort()">
           <option>Title</option>
           <option>Rating</option>
         </select>
@@ -37,12 +37,6 @@ export default Vue.extend({
   },
 
   methods: {
-    something() {
-      const hans = this.$store.getters;
-
-      console.log(hans);
-    },
-
     onChangeSort() {
       // If the select buttons says Title, sort by title, else sort by ratings
       if (this.sortBy === "Title") {

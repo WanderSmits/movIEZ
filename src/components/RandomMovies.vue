@@ -50,8 +50,7 @@ export default Vue.extend({
   display: grid;
   grid-template-columns: repeat(2, 1fr) 0.2fr repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+
   overflow: hidden;
 }
 .movie-title {

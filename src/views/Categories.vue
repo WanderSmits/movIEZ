@@ -72,8 +72,7 @@ export default Vue.extend({
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 0.4fr 0.6fr 1fr 0.5fr 0.3fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+
   /* hides scrollbar */
   overflow-x: hidden;
 }

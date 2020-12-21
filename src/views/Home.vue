@@ -2,15 +2,24 @@
   <div class="home">
     <div class="select-div">
       <div class="select-sort">
-        Sort by:
-        <select v-model="sortBy" @change="onChangeSort()">
+        <label for="sort">
+          Sort by:
+        </label>
+        <select name="sort" id="sort" v-model="sortBy" @change="onChangeSort()">
           <option>Title</option>
           <option>Rating</option>
         </select>
       </div>
       <div class="select-genre">
-        Show:
-        <select v-model="selected" @change="onChangeCategory()">
+        <label for="category">
+          Show:
+        </label>
+        <select
+          name="category"
+          id="category"
+          v-model="selected"
+          @change="onChangeCategory()"
+        >
           <option>Favorites</option>
           <option>Top Rated</option>
           <option>Trending</option>
