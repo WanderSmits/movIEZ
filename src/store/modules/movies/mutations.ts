@@ -14,6 +14,7 @@ export type Mutations<S = State> = {
   [MutationTypes.SET_COMEDY](state: S, payload: Array<MovieResult>): void;
   [MutationTypes.SET_HORROR](state: S, payload: Array<MovieResult>): void;
   [MutationTypes.SET_SCIFI](state: S, payload: Array<MovieResult>): void;
+  [MutationTypes.SET_CATEGORY](state: S, payload: Array<MovieResult>): void;
 };
 
 // Favorite Mutation
@@ -64,6 +65,11 @@ export const mutations: MutationTree<State> & Mutations = {
       payload[Math.floor(Math.random() * payload.length)];
 
     state.randomMovie = movie;
+  },
+
+  [MutationTypes.SET_CATEGORY](state, payload) {
+    console.log(payload);
+    state.movieList = payload;
   },
 
   [MutationTypes.SET_ACTION](state, payload) {

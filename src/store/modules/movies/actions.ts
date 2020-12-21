@@ -55,6 +55,10 @@ export interface Actions {
     { commit }: AugmentedActionContext,
     payload: Array<MovieResult>
   ): void;
+  [ActionTypes.GET_CATEGORY](
+    { commit }: AugmentedActionContext,
+    payload: Array<MovieResult>
+  ): void;
 }
 
 // All the actions itself, fetching data
@@ -133,6 +137,21 @@ export const actions: ActionTree<State, State> & Actions = {
       });
   },
 
+  async [ActionTypes.GET_CATEGORY]({ commit }, id) {
+    const genreId = id;
+    await axios
+      .get(
+        `${FETCH_URL}discover/movie?api_key=${API_KEY}&with_genres=${genreId}`
+      )
+      .then((data) => {
+        const genre: Array<MovieResult> = data.data.results;
+        commit(MutationTypes.SET_CATEGORY, genre);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+
   // fetchActionMovie
   async [ActionTypes.GET_ACTION]({ commit }) {
     await axios
@@ -140,6 +159,7 @@ export const actions: ActionTree<State, State> & Actions = {
       .get(`${FETCH_URL}discover/movie?api_key=${API_KEY}&with_genres=28`)
       .then((data) => {
         const actionMovies: Array<MovieResult> = data.data.results;
+        console.log(actionMovies);
         commit(MutationTypes.SET_ACTION, actionMovies);
       })
       .catch((error) => {

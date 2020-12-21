@@ -112,7 +112,7 @@ export default Vue.extend({
   },
 
   computed: {
-    // Get the state of the page on load
+    // Get the movies on load
     ...mapGetters("movies/", ["movieList"]),
   },
 });

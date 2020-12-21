@@ -9,4 +9,5 @@ export enum ActionTypes {
   GET_COMEDY = "fetchComedyMovies",
   GET_HORROR = "fetchHorrorMovies",
   GET_SCIFI = "fetchScifiMovies",
+  GET_CATEGORY = "fetchMovieCategory",
 }

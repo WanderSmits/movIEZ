@@ -4,6 +4,8 @@ import { MovieResult } from "@/models/Movies";
 
 export type Getters = {
   movieList(state: State, payload: Array<MovieResult>): void;
+  randomMovie(state: State, payload: {}): void;
+  movieTrailer(state: State, payload: string): void;
 };
 
 export const getters: GetterTree<State, State> & Getters = {

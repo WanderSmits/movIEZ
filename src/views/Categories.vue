@@ -2,118 +2,59 @@
   <div class="category-page">
     <h1>Categories</h1>
     <!-- Dummy text -->
-    <div class="category-action">
-      <router-link :to="{ name: 'CategoryList' }">
-        <img
-          @click="actionMovie"
-          src="@/assets/images/action.png"
-          alt="action"
-        />
-      </router-link>
-    </div>
 
-    <div class="category-comedy">
-      <router-link :to="{ name: 'CategoryList' }">
-        <img
-          @click="comedyMovie"
-          src="@/assets/images/comedy.png"
-          alt="comedy"
-        />
-      </router-link>
-    </div>
-    <div class="category-horror">
-      <router-link :to="{ name: 'CategoryList' }">
-        <img
-          @click="horrorMovie"
-          src="@/assets/images/horror.png"
-          alt="horror"
-        />
-      </router-link>
-    </div>
-    <div class="category-sci-fi">
-      <router-link :to="{ name: 'CategoryList' }">
-        <img
-          @click="scifiMovie"
-          src="@/assets/images/sci-fi.png"
-          alt="sci-fi"
-        />
-      </router-link>
+    <div class="categories">
+      <genres v-for="genre in genreList" :genre="genre" :key="genre.id" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import Genres from "../components/Genres.vue";
+import genreList from "../genres/genreList.json";
 
 export default Vue.extend({
   name: "Categories",
+  components: {
+    Genres,
+  },
 
-  methods: {
-    actionMovie() {
-      this.$store.dispatch(`movies/fetchActionMovies`);
-    },
-    comedyMovie() {
-      this.$store.dispatch(`movies/fetchComedyMovies`);
-    },
-    horrorMovie() {
-      this.$store.dispatch(`movies/fetchHorrorMovies`);
-    },
-    scifiMovie() {
-      this.$store.dispatch(`movies/fetchScifiMovies`);
-    },
+  data() {
+    return {
+      genreList: genreList.genres,
+    };
   },
 });
 </script>
 
 <style scoped>
 .category-page {
-  text-align: center;
   height: 87vh;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 0.4fr 0.6fr 1fr 0.5fr 0.3fr;
-
   /* hides scrollbar */
-  overflow-x: hidden;
 }
 
-img {
-  align-items: center;
-  width: 100%;
-  height: auto;
-  padding: 1vh;
-}
-
-img:hover {
-  cursor: pointer;
-  transform: scale(1.02);
+.categories {
+  position: relative;
+  top: 30vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40vh, 1fr));
+  align-items: stretch;
 }
 
 h1 {
   position: relative;
-  grid-area: 2 / 2 / 3 / 4;
+  top: 5vh;
+  text-align: center;
 }
 
-.category-action {
-  grid-area: 3 / 1 / 4 / 2;
-}
-
-.category-comedy {
-  grid-area: 3 / 2 / 4 / 3;
-}
-
-.category-horror {
-  grid-area: 3 / 3 / 4 / 4;
-}
-
-.category-sci-fi {
-  grid-area: 3 / 4 / 4 / 5;
-}
-
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1100px) {
   .category-page {
+    padding: 1vh;
+    overflow: auto;
+  }
+  .categories {
     display: table;
-    overflow-x: hidden;
   }
 }
 </style>

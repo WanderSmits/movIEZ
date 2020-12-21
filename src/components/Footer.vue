@@ -1,35 +1,37 @@
 <template>
   <footer class="footer">
-    <router-link :to="{ name: 'SiteMap' }">
-      <div class="footer-sitemap">
-        Pages
-      </div>
-    </router-link>
+    <section>
+      <router-link :to="{ name: 'SiteMap' }">
+        <p class="footer-sitemap">
+          RSS
+        </p>
+      </router-link>
 
-    <!-- Blank line in footer -->
-    <hr />
+      <!-- Blank line in footer -->
+      <hr />
 
-    <div class="footer-pages">
-      <div class="footer-homepage">
-        <router-link :to="{ name: 'Home' }">
-          <h5>Home</h5>
-        </router-link>
-      </div>
-      <div class="footer-category">
-        <router-link :to="{ name: 'Categories' }">
-          <h5>Categories</h5>
-        </router-link>
-      </div>
-      <div class="footer-random">
-        <router-link :to="{ name: 'Random' }">
-          <h5>Random</h5>
-        </router-link>
-      </div>
+      <div class="footer-pages">
+        <div class="footer-homepage">
+          <router-link :to="{ name: 'Home' }">
+            <h5 class="footer-homepage">Home</h5>
+          </router-link>
+        </div>
+        <div class="footer-category">
+          <router-link :to="{ name: 'Categories' }">
+            <h5>Categories</h5>
+          </router-link>
+        </div>
+        <div class="footer-random">
+          <router-link :to="{ name: 'Random' }">
+            <h5>Random</h5>
+          </router-link>
+        </div>
 
-      <p class="footer-copy">
-        Copyright &copy; 2020
-      </p>
-    </div>
+        <p class="footer-copy">
+          Copyright &copy; 2020
+        </p>
+      </div>
+    </section>
   </footer>
 </template>
 
@@ -51,7 +53,6 @@ export default Vue.extend({});
 .footer-pages {
   display: grid;
   grid-template-columns: 12fr repeat(3, 1fr);
-  grid-template-rows: 1fr;
 }
 
 .footer-pages a {
@@ -60,7 +61,6 @@ export default Vue.extend({});
 }
 
 .footer-sitemap {
-  text-decoration: none;
   color: #fff;
 }
 
@@ -92,23 +92,5 @@ a.router-link-exact-active h5 {
 
 .footer-copy {
   color: rgb(211, 44, 44);
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin-top: 50px;
-}
-
-@media (max-width: 991px) {
-  .site-footer {
-    margin-bottom: 30px;
-    padding-bottom: 0;
-  }
-}
-@media (max-width: 767px) {
-  .site-footer {
-    padding-bottom: 0;
-  }
-  .site-footer .copyright-text {
-    text-align: center;
-  }
 }
 </style>

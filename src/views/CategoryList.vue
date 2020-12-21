@@ -40,7 +40,7 @@ export default Vue.extend({
     onChangeSort() {
       // If the select buttons says Title, sort by title, else sort by ratings
       if (this.sortBy === "Title") {
-        this.$store.state.movies.movieList.sort(
+        this.$store.getters["movies/movieList"].sort(
           (firstMovie: MovieResult, secondMovie: MovieResult) =>
             // TS gave an error about Because of the possibly of an undefined value, Workaround by checking if both titles are not undefined
             firstMovie.title && secondMovie.title
@@ -49,7 +49,7 @@ export default Vue.extend({
               : ""
         );
       } else {
-        this.$store.state.movies.movieList.sort(
+        this.$store.getters["movies/movieList"].sort(
           (firstMovie: MovieResult, secondMovie: MovieResult) =>
             // TS gave an error about Because of the possibly of an undefined value, Workaround by checking if both titles are not undefined
             firstMovie.vote_average && secondMovie.vote_average

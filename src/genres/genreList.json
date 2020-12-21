@@ -1,0 +1,24 @@
+{
+  "genres": [
+    {
+      "name": "action",
+      "img": "action.png",
+      "id": 28
+    },
+    {
+      "name": "comedy",
+      "img": "comedy.png",
+      "id": 35
+    },
+    {
+      "name": "horror",
+      "img": "horror.png",
+      "id": 27
+    },
+    {
+      "name": "sci-fi",
+      "img": "sci-fi.png",
+      "id": 878
+    }
+  ]
+}

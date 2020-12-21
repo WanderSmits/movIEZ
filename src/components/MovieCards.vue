@@ -10,7 +10,7 @@
       }"
     >
       <div class="movie-image">
-        <img :src="`${background}${movie.poster_path}`" />
+        <img :src="`${background}${movie.poster_path}`" :alt="movie.title" />
       </div>
       <div class="movie-details">
         <!-- Some of the movie titles in the API are under movie.name -->
@@ -60,7 +60,6 @@ export default Vue.extend({
 .movie-image {
   width: 100%;
   height: auto;
-  position: relative;
   /* cut the image just slightly off on the right  */
   clip-path: polygon(0 0, 100% 0, 100% 97%, 0 100%);
 }
@@ -71,8 +70,6 @@ export default Vue.extend({
 }
 .movie-details {
   width: 100%;
-  position: relative;
-  top: 1px;
   padding: 30px 10px;
 }
 .movie-details > h3 {

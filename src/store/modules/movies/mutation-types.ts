@@ -9,4 +9,5 @@ export enum MutationTypes {
   SET_COMEDY = "SET_COMEDY",
   SET_HORROR = "SET_HORROR",
   SET_SCIFI = "SET_SCIFI",
+  SET_CATEGORY = "SET_CATEGORY",
 }

@@ -52,7 +52,7 @@ export default Vue.extend({
   },
 
   computed: {
-    // Get trailer state
+    // Get trailer
     ...mapGetters("movies/", ["movieTrailer"]),
   },
 });
