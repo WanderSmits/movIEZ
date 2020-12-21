@@ -45,16 +45,15 @@ export default Vue.extend({
 
 <style scoped>
 .movie-card {
-  border-radius: 4px;
   padding: 0.5rem;
   background-color: #0f03013b;
-  border-radius: 20px;
+  border-radius: 5vh;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
 }
 
 .movie-card:hover {
   /* On hover scale out the card so it is visually clear which button you're hovering over */
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .movie-image {
@@ -72,27 +71,17 @@ export default Vue.extend({
   width: 100%;
   padding: 30px 10px;
 }
-.movie-details > h3 {
-  color: #f8f8f8;
-  font-weight: 600;
-  font-size: 18px;
-  margin: 0px 0 15px 0;
-}
 
 a {
   /* So there is line under text */
   text-decoration: none;
 }
+
 .movie-details > p {
-  color: #f8f8f8;
-  font-size: 15px;
   line-height: 30px;
-  font-weight: 400;
 }
 
 .movie-rating {
-  color: #f8f8f8;
-  position: relative;
   float: right;
 }
 </style>

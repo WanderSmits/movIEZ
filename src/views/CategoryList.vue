@@ -1,17 +1,19 @@
 <template>
   <div class="category">
     <div class="category-sort">
-      <div class="sort-text">
-        <label for="sort">
-          Sort by:
-        </label>
-      </div>
-      <div class="sort-options">
-        <select name="sort" id="sort" v-model="sortBy" @change="onChangeSort()">
-          <option>Title</option>
-          <option>Rating</option>
-        </select>
-      </div>
+      <label class="sort-text" for="sort">
+        Sort by:
+      </label>
+      <select
+        class="sort-options"
+        name="sort"
+        id="sort"
+        v-model="sortBy"
+        @change="onChangeSort()"
+      >
+        <option>Title</option>
+        <option>Rating</option>
+      </select>
     </div>
     <div class="movie-cards">
       <movie-cards v-for="movie in movieList" :movie="movie" :key="movie.id" />
@@ -78,6 +80,7 @@ export default Vue.extend({
 
 .sort-text {
   grid-area: 1 / 2 / 2 / 3;
+  width: 8vh;
 }
 
 .sort-options {

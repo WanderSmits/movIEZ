@@ -6,17 +6,16 @@
         :alt="movie.movieTitle"
       />
     </div>
-    <div class="movie-title">
-      <!-- Because some of the movies given don't have a title but they do have a movie name -->
-      <h1>
-        {{ movie.title ? movie.title : movie.name }}
-      </h1>
-    </div>
+    <!-- Because some of the movies given don't have a title but they do have a movie name -->
+    <h1 class="movie-title">
+      {{ movie.title ? movie.title : movie.name }}
+    </h1>
     <div class="movie-description">
       <p>{{ movie.overview }}</p>
     </div>
     <div class="movie-trailer">
       <iframe
+        class="movie-trailer"
         width="100%"
         height="100%"
         :src="`${youtubeUrl}${movieTrailer}?autoplay=1`"
@@ -122,7 +121,6 @@ export default Vue.extend({
   }
   .movie-description {
     grid-area: 4 / 1 / 5 / 2;
-    overflow: auto;
   }
 }
 </style>

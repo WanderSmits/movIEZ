@@ -30,15 +30,9 @@ export default Vue.extend({
 </script>
 
 <style>
-* {
-  /* No blank spaces between the nav and the homepage */
-  margin: 0 !important;
-}
 #app {
-  font-family: "Raleway", sans-serif;
   position: relative;
   top: 6vh;
   background: rgba(0, 0, 0, 0.92);
-  color: white;
 }
 </style>

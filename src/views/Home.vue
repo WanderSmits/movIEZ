@@ -2,7 +2,7 @@
   <div class="home">
     <div class="select-div">
       <div class="select-sort">
-        <label for="sort">
+        <label class="select-sort" for="sort">
           Sort by:
         </label>
         <select name="sort" id="sort" v-model="sortBy" @change="onChangeSort()">
@@ -153,7 +153,6 @@ export default Vue.extend({
 
 select {
   border-radius: 1 2px 4px 4px;
-  color: white;
   width: 12vh;
   background: rgba(0, 0, 0, 0.2);
   /* gets rid of the orange outline the button by default has */
@@ -162,7 +161,6 @@ select {
 
 option {
   background: rgb(10, 0, 0);
-  color: #f8f8f8;
 }
 
 select:hover {

@@ -4,12 +4,9 @@
     enter-active-class="animate__animated animate__fadeIn"
   >
     <div :key="movieObject.id" class="random">
-      <div class="movie-title">
-        <h1>
-          {{ movieObject.title }}
-        </h1>
-      </div>
-
+      <h1 class="movie-title">
+        {{ movieObject.title }}
+      </h1>
       <div class="movie-image">
         <!-- Whenever there is an image, show image. If not show an empty div -->
         <img
@@ -19,9 +16,7 @@
         />
         <div v-else></div>
       </div>
-      <div class="movie-description">
-        <p>{{ movieObject.overview }}</p>
-      </div>
+      <p class="movie-description">{{ movieObject.overview }}</p>
     </div>
   </transition>
 </template>
@@ -50,7 +45,6 @@ export default Vue.extend({
   display: grid;
   grid-template-columns: repeat(2, 1fr) 0.2fr repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);
-
   overflow: hidden;
 }
 .movie-title {
@@ -66,9 +60,7 @@ export default Vue.extend({
 .movie-image {
   grid-area: 2 / 1 / 6 / 3;
   position: relative;
-
   top: 10vh;
-  display: inline-table;
 }
 .movie-image > img {
   width: 80%;
@@ -78,8 +70,32 @@ export default Vue.extend({
 .movie-description {
   grid-area: 5 / 4 / 6 / 6;
 }
-.movie-description p {
-  width: 100%;
+.movie-description > p {
+  width: 80%;
   height: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .random {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr repeat(2, 1fr);
+    grid-row-gap: 12vh;
+  }
+
+  .movie-title {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .movie-image {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+
+  .movie-image > img {
+    width: 100%;
+    height: auto;
+  }
+  .movie-description {
+    grid-area: 3 / 1 / 4 / 2;
+  }
 }
 </style>

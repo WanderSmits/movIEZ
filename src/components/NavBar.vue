@@ -4,7 +4,7 @@
     <div class="nav-logo">
       <router-link :to="{ name: 'Home' }">Mov<strong>IEZ</strong> </router-link>
     </div>
-    <ul class="nav-links" :style="collapsed ? collapseMenu : uncollapseMenu">
+    <ul class="nav-links" :style="collapsed ? uncollapseMenu : collapseMenu">
       <li @click="onClick">
         <router-link :to="{ name: 'Home' }"><h4>Home</h4></router-link>
       </li>
@@ -51,23 +51,17 @@ export default Vue.extend({
 
 <style scoped>
 nav {
-  color: #fff;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgb(15, 15, 15);
   height: 6vh;
   z-index: 10;
 }
 
 nav .nav-logo {
   float: left;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  color: #fff;
 }
 
 ul {
@@ -77,7 +71,6 @@ ul {
 nav .nav-links {
   float: right;
   width: 60%;
-  height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -86,7 +79,6 @@ nav .nav-links {
 /* All links */
 nav a {
   text-decoration: none;
-  color: #fff;
   display: block;
   padding: 1em;
   font-size: 2vh;
@@ -127,7 +119,7 @@ nav .nav-menu .nav-line {
   background-color: #fff;
   margin: 5px;
   border-radius: 3px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -144,9 +136,12 @@ nav .nav-menu .nav-line {
     justify-content: space-evenly;
     background-color: rgba(0, 0, 0, 0.7);
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.4s ease-in-out;
   }
 
+  nav .nav-links li {
+    font-size: 50px;
+  }
   nav .nav-menu {
     display: block;
   }

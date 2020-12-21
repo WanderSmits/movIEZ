@@ -10,10 +10,6 @@ export type Mutations<S = State> = {
   [MutationTypes.SET_TOP_RATED](state: S, payload: Array<MovieResult>): void;
   [MutationTypes.SET_TRAILER](state: S, payload: Array<MovieTrailer>): void;
   [MutationTypes.SET_RANDOM](state: S, payload: Array<MovieResult>): void;
-  [MutationTypes.SET_ACTION](state: S, payload: Array<MovieResult>): void;
-  [MutationTypes.SET_COMEDY](state: S, payload: Array<MovieResult>): void;
-  [MutationTypes.SET_HORROR](state: S, payload: Array<MovieResult>): void;
-  [MutationTypes.SET_SCIFI](state: S, payload: Array<MovieResult>): void;
   [MutationTypes.SET_CATEGORY](state: S, payload: Array<MovieResult>): void;
 };
 
@@ -68,23 +64,6 @@ export const mutations: MutationTree<State> & Mutations = {
   },
 
   [MutationTypes.SET_CATEGORY](state, payload) {
-    console.log(payload);
-    state.movieList = payload;
-  },
-
-  [MutationTypes.SET_ACTION](state, payload) {
-    state.movieList = payload;
-  },
-
-  [MutationTypes.SET_COMEDY](state, payload) {
-    state.movieList = payload;
-  },
-
-  [MutationTypes.SET_HORROR](state, payload) {
-    state.movieList = payload;
-  },
-
-  [MutationTypes.SET_SCIFI](state, payload) {
     state.movieList = payload;
   },
 };

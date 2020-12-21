@@ -1,8 +1,6 @@
 <template>
   <div class="category-page">
     <h1>Categories</h1>
-    <!-- Dummy text -->
-
     <div class="categories">
       <genres v-for="genre in genreList" :genre="genre" :key="genre.id" />
     </div>
@@ -32,6 +30,7 @@ export default Vue.extend({
 .category-page {
   height: 87vh;
   /* hides scrollbar */
+  overflow: hidden;
 }
 
 .categories {
@@ -39,13 +38,22 @@ export default Vue.extend({
   top: 30vh;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(40vh, 1fr));
-  align-items: stretch;
 }
 
 h1 {
+  text-align: center;
   position: relative;
   top: 5vh;
-  text-align: center;
+}
+
+@media screen and (max-height: 400px) {
+  .category-page {
+    padding: 1vh;
+    overflow: auto;
+  }
+  .categories {
+    display: table;
+  }
 }
 
 @media screen and (max-width: 1100px) {
@@ -53,6 +61,7 @@ h1 {
     padding: 1vh;
     overflow: auto;
   }
+
   .categories {
     display: table;
   }

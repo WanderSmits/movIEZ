@@ -1,5 +1,4 @@
 // All the urls used in this app
-
 export const YOUTUBE_URL = "https://www.youtube.com/embed/";
 export const MOVIE_BACKGROUND_URL = "https://image.tmdb.org/t/p/w780/";
 export const MOVIE_POSTER_URL = "https://image.tmdb.org/t/p/w342/";

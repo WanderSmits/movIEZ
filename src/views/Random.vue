@@ -1,17 +1,13 @@
 <template>
   <div class="random-page">
     <div class="random-explanation">
-      <div class="movie-title">
-        <h1>What to watch tonight?!</h1>
-      </div>
-      <div class="explanation">
-        <p>
-          We have all been there... You come home from a long day at work and
-          you want to watch a movie, but you are not sure which one. Instead of
-          scrolling on netflix for hours, just take the plunge and watch the
-          movie that is being randomized for you!
-        </p>
-      </div>
+      <h1 class="movie-title">What to watch tonight?!</h1>
+      <p class="explanation">
+        We have all been there... You come home from a long day at work and you
+        want to watch a movie, but you are not sure which one. Instead of
+        scrolling on netflix for hours, just take the plunge and watch the movie
+        that is being randomized for you!
+      </p>
       <div class="random-button">
         <button type="button" @click="handleClick">Randomizer</button>
       </div>
@@ -102,7 +98,6 @@ export default Vue.extend({
   border-color: rgb(184, 15, 15);
   background: rgb(20, 20, 20);
   border-radius: 0.5vh;
-  color: white;
   padding: 3vh 6vh;
   outline: none;
   width: 100%;
@@ -113,7 +108,6 @@ export default Vue.extend({
   /* slowly transition the red color on hover */
   transition-duration: 0.7s;
   background: rgb(184, 15, 15);
-  color: white;
   transform: scale(1.05);
   cursor: pointer;
 }
@@ -137,7 +131,6 @@ export default Vue.extend({
 @media screen and (max-width: 600px) {
   .random-page {
     display: table;
-    overflow: hidden;
   }
 
   .random-button > button {
@@ -145,8 +138,7 @@ export default Vue.extend({
     top: 5vh;
   }
   .random-movie {
-    height: 100vh;
-    width: auto;
+    height: auto;
   }
 }
 </style>

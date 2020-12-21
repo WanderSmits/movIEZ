@@ -1,6 +1,8 @@
 <template>
   <div class="site">
-    {{ this.getRoutesXML() }}
+    <p>
+      {{ this.getRoutesXML() }}
+    </p>
   </div>
 </template>
 
@@ -39,5 +41,7 @@ export default Vue.extend({
   position: relative;
   top: 5vh;
   height: 87vh;
+  font-size: 2vh;
+  overflow: hidden;
 }
 </style>

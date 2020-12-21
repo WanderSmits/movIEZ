@@ -2,9 +2,9 @@
   <footer class="footer">
     <section>
       <router-link :to="{ name: 'SiteMap' }">
-        <p class="footer-sitemap">
+        <h5 class="footer-sitemap">
           RSS
-        </p>
+        </h5>
       </router-link>
 
       <!-- Blank line in footer -->
@@ -13,7 +13,7 @@
       <div class="footer-pages">
         <div class="footer-homepage">
           <router-link :to="{ name: 'Home' }">
-            <h5 class="footer-homepage">Home</h5>
+            <h5>Home</h5>
           </router-link>
         </div>
         <div class="footer-category">
@@ -46,8 +46,6 @@ export default Vue.extend({});
   position: relative;
   background: rgba(0, 0, 0, 0.5);
   padding: 2vh 0 2vh;
-  font-size: 15px;
-  color: white;
 }
 
 .footer-pages {
@@ -57,11 +55,6 @@ export default Vue.extend({});
 
 .footer-pages a {
   text-decoration: none;
-  color: #fff;
-}
-
-.footer-sitemap {
-  color: #fff;
 }
 
 .footer-sitemap:hover {
@@ -86,7 +79,6 @@ a.router-link-exact-active h5 {
 
 /* add blank line to divide footer with the bottom */
 .site-footer hr {
-  border-top-color: #bbb;
   opacity: 0.5;
 }
 
