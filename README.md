@@ -14,14 +14,3 @@ I also made a what to watch function which randomly fetches a movie on the rando
 [Live demo](https://moviez-50fca.web.app)
 
 
-## Project setup
-
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
