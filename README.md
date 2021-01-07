@@ -1,8 +1,18 @@
-# dtt-test
 
-For this test I made a movies page, showing my top ten, trending and top rated movies with its details.
 
-I also made a what to watch function which randomly fetches a movie
+# movIEZ
+
+For this test I needed to make a homepage, categories page and a random page with vueJS and TS. 
+
+On the homepage I wanted to show top rated/trending movies and my favorite movies.
+
+When you click on a movie card, it directs you to a movie detail page, along with a trailer of the movie.
+
+I also made a what to watch function which randomly fetches a movie on the random page.
+
+
+# Live demo
+
 
 ## Project setup
 
