@@ -11,7 +11,7 @@ When you click on a movie card, it directs you to a movie detail page, along wit
 I also made a what to watch function which randomly fetches a movie on the random page.
 
 
-# Live demo
+[Live demo](https://moviez-50fca.web.app)
 
 
 ## Project setup
