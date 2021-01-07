@@ -9,6 +9,8 @@
 
 :point_right: I also made a what to watch function which randomly fetches a movie on the random page.
 
+:point_right: No Css-frameworks used
+
 
 [Live demo](https://moviez-50fca.web.app)
 
