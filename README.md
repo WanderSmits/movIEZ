@@ -1,13 +1,15 @@
 
 
-# :speaking_head: movIEZ :speaking_head:
+# :movie_camera: movIEZ :movie_camera:
 
 
- :scream_cat: A realtime chat application with google auth. :scream_cat:
- 
- :fire: Storing messages in Cloud Firestore :fire:
+:point_right: On the homepage I wanted to show top rated/trending movies and my favorite movies.
+
+:point_right: When you click on a movie card, it directs you to a movie detail page, along with a trailer of the movie.
+
+:point_right: I also made a what to watch function which randomly fetches a movie on the random page.
 
 
-[Live demo](https://chatapp-13a17.web.app)
+[Live demo](https://moviez-50fca.web.app)
 
 
